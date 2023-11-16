@@ -1,0 +1,17 @@
+# This is a .gitignore file and it must be placed at the root of your Unity project
+
+# Common folders that Unity creates
+/Library/
+/Temp/
+/Build/
+/obj/
+/Temp/
+/UserSettings/
+/Logs/
+
+# Visual studio cache
+.vs/
+
+# Visual studio project files
+*.csproj
+*.sln
