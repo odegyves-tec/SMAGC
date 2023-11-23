@@ -15,6 +15,8 @@ Shader "SMAGC/Unlit"
 
             HLSLPROGRAM
 
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
             #pragma vertex UnlitVertexShader
             #pragma fragment FragmentShader
 
@@ -33,7 +35,8 @@ Shader "SMAGC/Unlit"
             Varyings UnlitVertexShader(Attributes input)
             {
                 Varyings output = (Varyings)0;
-                output.positionCS = input.positionOS;
+                float4x4 mvp = mul(UNITY_MATRIX_P, mul(UNITY_MATRIX_V, UNITY_MATRIX_M));
+                output.positionCS = mul(mvp, input.positionOS);
                 return output;
             }
 
